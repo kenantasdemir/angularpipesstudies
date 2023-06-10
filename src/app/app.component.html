@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col col-md-6">
+      <div class="row">
+            <div class="col">
+              <label for="ad">Ad</label>
+              <input id="ad" type="text" class="form-control" (input)="onNameChange($any($event.target).value)">
+            </div>
+
+            <div class="col">
+
+              <label for="soyad">Soyad</label>
+              <input id="soyad" type="text" class="form-control" (input)="onSurnameChange($any($event.target).value)">
+            </div>
+      </div>
+
+
+      <label for="dogumgunu">Doğum gününüz</label>
+      <input id="dogumgunu" type="date" class="form-control" (input)="onDateChange($any($event.target).value)">
+
+
+      <label for="tutar">Dolar cinsinden Tutar</label>
+      <input id="tutar" type="text" class="form-control"  (input)="onDollarAmountChange($any($event.target).value)">
+
+
+      <label for="tutar">Euro cinsinden Tutar</label>
+      <input id="tutar" type="text" class="form-control"  (input)="onEuroAmountChange($any($event.target).value)">
+
+      <label for="tutar">Sterlin cinsinden Tutar</label>
+      <input id="tutar" type="text" class="form-control"  (input)="onSterlinAmountChange($any($event.target).value)">
+
+
+      <label for="boy">Boy</label>
+      <input id="boy" type="number" class="form-control" (input)="onHeightChange($any($event.target).value)">
+
+      <label for="mil">Mil</label>
+      <input id="mil" type="text" class="form-control" (input)="onMilesChange($any($event.target).value)">
+
+    </div>
+
+    <div class="col col-md-6 mb-5">
+
+      <p class="mt-4"> <b> Tam adınız : </b> {{name|titlecase}}  {{surname|uppercase}}  </p>
+
+      <p class="" style="margin-top: 48px;"> <b> Doğum gününüz : </b> {{date|date:"MMMM d,"}} </p>
+
+      <p class="mb-1" style="margin-top: 35px;"> <b> Girdiğiniz tutara </b> {{dollaramount | convertcurrency:"dollar"}} TL alabilisiniz.</p>
+      <p class="mb-1" style="margin-top:35px;"> <b>Girdiğiniz tutara </b> {{euroamount | convertcurrency:"euro"}} TL alabilirsiniz. </p>
+      <p class="" style="margin-top: 42px;"> <b>Girdiğiniz tutara </b> {{sterlinamount | convertcurrency:"sterlin"}} TL alabilirsiniz. </p>
+
+      <p style="margin-top: 40px;"> <b>Boy : </b> {{height | number:"1.0-0"}} </p>
+
+      <p style="margin-top: 37px;"> <b>  Kilometre : </b> {{mile | convert:"km"}} </p>
+
+    </div>
+
+    <div>
+      <p> <b>Diğer : </b> {{infos|json}} </p>
+
+    </div>
+
+
+
+  </div>
+</div>
